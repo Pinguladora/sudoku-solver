@@ -8,15 +8,13 @@ import (
 
 func main() {
 	sudoku := grid.ExampleGrid()
-
-	solverInstance := solver.BacktrackingSolver{}
-
 	fmt.Println("Given Sudoku board:")
 	sudoku.Print()
 
-	// Solve the puzzle
+	solverInstance := solver.MemoizedBacktrackingSolver{}
+
 	if solverInstance.Solve(&sudoku) {
-		fmt.Println("\nSolved Sudokuboard:")
+		fmt.Println("\nSolved Sudoku board:")
 	} else {
 		fmt.Println("\nNo solution exists. Board looks as:")
 	}
